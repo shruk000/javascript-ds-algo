@@ -21,9 +21,9 @@ function Fibonacci(a){
 }
 
 
-function cachingFibonacci(num){
+function cachingFibonacci(num,returnFunction=false){
     const fibValues={};
-
+    
     function Fibonacci(a){
         if(!fibValues[a]){
             if(a==0){
@@ -37,6 +37,9 @@ function cachingFibonacci(num){
         }else{
             return fibValues[a];
         }
+    }
+    if(returnFunction){
+        return Fibonacci;
     }
     return Fibonacci(num);
     
@@ -55,7 +58,10 @@ startTime=new Date();
 console.log(cachingFibonacci(50));       // took 0.0001 sec when Fibonacci(45)..gives 46th term..
 console.log(new Date()-startTime);
 
-
+startTime=new Date();
+const cBasedFibo=cachingFibonacci(0,true);      // Closure based fibonacciFunction
+console.log("closour based fibo : ",cBasedFibo(50));
+console.log(new Date()-startTime);
 
 
 
