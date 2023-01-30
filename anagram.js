@@ -9,8 +9,8 @@ const checkAnagram=(str1,str2)=>{
 
     const charMap1=getCharMap(str1); 
     const charMap2=getCharMap(str2);
-console.log(charMap1);
-console.log(charMap2);
+// console.log(charMap1);
+// console.log(charMap2);
     for(const [key,value] of Object.entries(charMap1)){
         if(charMap2[key]!=value)return false;
     }
@@ -19,3 +19,8 @@ console.log(charMap2);
 
 console.log("check ana - aabber bebara = ",checkAnagram("aabber","bebara") );
 console.log("check ana - aabber bebara = ",checkAnagram("abber","bebara") );
+
+
+
+
+
