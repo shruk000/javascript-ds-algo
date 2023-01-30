@@ -87,9 +87,35 @@ const c3=[1];
 // console.log(maxSubArraySum(c3,2));
 
 
+// find longest substring without repeating character
+function longestSubString(str){
+    const charMap={};
+    let i=0,j=1;
+    let maxlength=str.length>=1?1:0,maxArr=[i,i];
+    charMap[str[i]]=i;
+    
+    while(j<str.length){
+        if(str[j] in charMap){
+            
+            if(maxlength<j-i-1){
+                maxlength=j-i-1;
+                maxArr=[i,j-1];
+            }
+            i=charMap[str[j]]+1;
+            charMap[str[j]]=j;
+        }else{
+            charMap[str[j]]=j;
+            j++;
+        }
+        
+    }
+    return {maxlength,maxArr};
 
 
+}
 
+
+console.log(longestSubString("ABDEFGAB"));
 
 
 
